@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: snowman-backend
+    runtime: docker
+    dockerfilePath: backend/Dockerfile
+    dockerContext: backend
+    plan: free
+    region: oregon
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 8765
+      - key: HOST
+        value: 0.0.0.0
+      - key: LLM_PROVIDER
+        value: groq
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-120b
+      - key: WHISPER_MODEL_SIZE
+        value: tiny
+      - key: GOOGLE_TTS_API_KEY
+        sync: false
+      - key: USE_FALLBACK_TTS
+        value: "true"

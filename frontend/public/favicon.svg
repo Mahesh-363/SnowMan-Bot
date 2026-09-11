@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="snowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="65" r="28" fill="url(#snowGrad)" opacity="0.9"/>
+  <circle cx="50" cy="30" r="18" fill="url(#snowGrad)"/>
+  <circle cx="44" cy="28" r="2.5" fill="#ffffff"/>
+  <circle cx="56" cy="28" r="2.5" fill="#ffffff"/>
+  <polygon points="50,33 55,36 50,37" fill="#f97316"/>
+  <circle cx="50" cy="55" r="2.5" fill="#0f172a"/>
+  <circle cx="50" cy="65" r="2.5" fill="#0f172a"/>
+  <circle cx="50" cy="75" r="2.5" fill="#0f172a"/>
+</svg>

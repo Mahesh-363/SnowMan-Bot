@@ -1,0 +1,55 @@
+{
+  "allowed_applications": [
+    {
+      "alias": "notepad",
+      "executable": "notepad.exe",
+      "description": "Windows Notepad text editor"
+    },
+    {
+      "alias": "calculator",
+      "executable": "calc.exe",
+      "description": "Windows Calculator"
+    },
+    {
+      "alias": "calc",
+      "executable": "calc.exe",
+      "description": "Windows Calculator"
+    },
+    {
+      "alias": "terminal",
+      "executable": "wt.exe",
+      "description": "Windows Terminal"
+    },
+    {
+      "alias": "cmd",
+      "executable": "cmd.exe",
+      "description": "Command Prompt"
+    },
+    {
+      "alias": "powershell",
+      "executable": "powershell.exe",
+      "description": "PowerShell"
+    },
+    {
+      "alias": "explorer",
+      "executable": "explorer.exe",
+      "description": "File Explorer"
+    },
+    {
+      "alias": "code",
+      "executable": "code.cmd",
+      "description": "Visual Studio Code"
+    }
+  ],
+  "allowed_domains": [
+    "google.com",
+    "youtube.com",
+    "github.com",
+    "wikipedia.org",
+    "reddit.com",
+    "duckduckgo.com",
+    "bing.com",
+    "stackoverflow.com"
+  ],
+  "allow_all_search_queries": true
+}
