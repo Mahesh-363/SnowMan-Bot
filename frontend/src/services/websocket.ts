@@ -4,6 +4,11 @@ export const getApiBaseUrl = (): string => {
   if (import.meta.env.VITE_API_URL) {
     return import.meta.env.VITE_API_URL.replace(/\/$/, '');
   }
+  if (import.meta.env.VITE_WS_URL) {
+    const wsUrl = import.meta.env.VITE_WS_URL.trim();
+    const httpUrl = wsUrl.replace(/^wss:\/\//i, 'https://').replace(/^ws:\/\//i, 'http://');
+    return httpUrl.replace(/\/ws\/?$/, '').replace(/\/$/, '');
+  }
   if (typeof window !== 'undefined' && window.location.protocol === 'https:') {
     return `https://${window.location.host}`;
   }
@@ -11,8 +16,20 @@ export const getApiBaseUrl = (): string => {
 };
 
 export const getWsUrl = (): string => {
-  if (import.meta.env.VITE_WS_URL) {
-    return import.meta.env.VITE_WS_URL;
+  let url = import.meta.env.VITE_WS_URL;
+  if (url) {
+    url = url.trim();
+    // Auto-normalize protocol if user passed https:// or http://
+    if (url.startsWith('https://')) {
+      url = 'wss://' + url.slice(8);
+    } else if (url.startsWith('http://')) {
+      url = 'ws://' + url.slice(7);
+    }
+    // Auto-append /ws endpoint if missing
+    if (!url.endsWith('/ws')) {
+      url = url.replace(/\/$/, '') + '/ws';
+    }
+    return url;
   }
   if (typeof window !== 'undefined') {
     if (window.location.protocol === 'https:') {

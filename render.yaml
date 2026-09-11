@@ -8,8 +8,6 @@ services:
     region: oregon
     healthCheckPath: /health
     envVars:
-      - key: PORT
-        value: 8765
       - key: HOST
         value: 0.0.0.0
       - key: LLM_PROVIDER

@@ -30,6 +30,7 @@ ENV WHISPER_MODEL_SIZE=tiny
 
 # Copy backend application code
 COPY app ./app
+COPY config ./config
 COPY run_backend.py ./run_backend.py
 
 EXPOSE 8765

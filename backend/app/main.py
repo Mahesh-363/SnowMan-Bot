@@ -1,3 +1,4 @@
+import os
 import asyncio
 import json
 import logging
@@ -48,10 +49,14 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# Enable CORS for Tauri frontend and Vite dev server
+# Enable CORS for Vercel web frontend, local development, and custom domains
+allowed_origins_env = os.getenv("ALLOWED_ORIGINS", "")
+custom_origins = [orig.strip() for orig in allowed_origins_env.split(",") if orig.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=custom_origins or ["*"],
+    allow_origin_regex=r"https://.*\.vercel\.app|https://.*\.onrender\.com|http://localhost(:\d+)?|http://127\.0\.0\.1(:\d+)?",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
